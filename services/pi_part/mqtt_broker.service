@@ -1,0 +1,10 @@
+[Unit]
+Description=mosquitto mqtt broker on port 1560
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/sbin/mosquitto -p 1560
+
+[Install]
+WantedBy=multi-user.target

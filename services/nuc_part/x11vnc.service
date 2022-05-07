@@ -1,0 +1,16 @@
+[Unit]
+Description=x11vnc service
+After=display-manager.service network.target syslog.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=on-failure
+RestartSec=10
+User=nuc
+ExecStart=/usr/bin/x11vnc -forever -display :0 -auth nuc -passwd Arpita_1491
+ExecStop=/usr/bin/killall x11vnc
+
+
+[Install]
+WantedBy=multi-user.target

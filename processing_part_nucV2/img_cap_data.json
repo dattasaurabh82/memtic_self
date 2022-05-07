@@ -1,0 +1,21 @@
+{
+    "description": {
+        "captions": [
+            {
+                "confidence": 0.3998538553714752,
+                "text": "a group of people walking down a sidewalk"
+            }
+        ],
+        "tags": [
+            "outdoor",
+            "person"
+        ]
+    },
+    "metadata": {
+        "format": "Jpeg",
+        "height": 600,
+        "width": 800
+    },
+    "modelVersion": "2021-05-01",
+    "requestId": "ef0155b7-db40-4f60-910a-7537f5965012"
+}

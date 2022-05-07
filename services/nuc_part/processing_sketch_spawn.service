@@ -1,0 +1,15 @@
+[Unit]
+Description=processing sketch nuc part the AI gui autostart service
+
+Wants=network.target
+After=syslog.target network-online.target display-manager.service
+
+[Service]
+Type=simple
+Environment="DISPLAY=:0"
+User=nuc
+ExecStartPre=/bin/sleep 30
+ExecStart=/home/nuc/processing-3.5.4/processing-java --sketch=/home/nuc/sketchbook/sketches/processing_part_nuc/ --run
+
+[Install]
+WantedBy=multi-user.target

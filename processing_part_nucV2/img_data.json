@@ -1,0 +1,17 @@
+{
+    "id": "ef0155b7-db40-4f60-910a-7537f5965012",
+    "output": {
+        "captions": [
+            {
+                "bounding_box": [
+                    528,
+                    109,
+                    105,
+                    305
+                ],
+                "caption": "a group of people walking down a sidewalk",
+                "confidence": 0.3998538553714752
+            }
+        ]
+    }
+}

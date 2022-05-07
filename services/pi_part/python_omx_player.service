@@ -1,0 +1,11 @@
+[Unit]
+Description=Python script to run omx player with mqtt
+After=network.target
+
+[Service]
+Type=simple
+ExecStartPre=/bin/sleep 10
+ExecStart=/usr/bin/python3 /home/pi/omx_player.py
+
+[Install]
+WantedBy=multi-user.target

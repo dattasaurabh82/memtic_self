@@ -1,0 +1,221 @@
+{
+    "data": [
+        {
+            "analytics": {
+                "onclick": {
+                    "url": "https://giphy-analytics.giphy.com/v2/pingback_simple?analytics_response_payload=e%3DZ2lmX2lkPU55NHIxbkNIZzNhVmxubGVvVSZldmVudF90eXBlPUdJRl9TRUFSQ0gmY2lkPTBhYzg2OTVjcThnZnJ0YnFnNHZsNzA3aHF3YmliYnM4cXQ3NjRwanY4bzAxc3Y5dSZjdD1n&action_type=CLICK"
+                },
+                "onload": {
+                    "url": "https://giphy-analytics.giphy.com/v2/pingback_simple?analytics_response_payload=e%3DZ2lmX2lkPU55NHIxbkNIZzNhVmxubGVvVSZldmVudF90eXBlPUdJRl9TRUFSQ0gmY2lkPTBhYzg2OTVjcThnZnJ0YnFnNHZsNzA3aHF3YmliYnM4cXQ3NjRwanY4bzAxc3Y5dSZjdD1n&action_type=SEEN"
+                },
+                "onsent": {
+                    "url": "https://giphy-analytics.giphy.com/v2/pingback_simple?analytics_response_payload=e%3DZ2lmX2lkPU55NHIxbkNIZzNhVmxubGVvVSZldmVudF90eXBlPUdJRl9TRUFSQ0gmY2lkPTBhYzg2OTVjcThnZnJ0YnFnNHZsNzA3aHF3YmliYnM4cXQ3NjRwanY4bzAxc3Y5dSZjdD1n&action_type=SENT"
+                }
+            },
+            "analytics_response_payload": "e=Z2lmX2lkPU55NHIxbkNIZzNhVmxubGVvVSZldmVudF90eXBlPUdJRl9TRUFSQ0gmY2lkPTBhYzg2OTVjcThnZnJ0YnFnNHZsNzA3aHF3YmliYnM4cXQ3NjRwanY4bzAxc3Y5dSZjdD1n",
+            "bitly_gif_url": "https://gph.is/g/4wW85o8",
+            "bitly_url": "https://gph.is/g/4wW85o8",
+            "content_url": "",
+            "embed_url": "https://giphy.com/embed/Ny4r1nCHg3aVlnleoU",
+            "id": "Ny4r1nCHg3aVlnleoU",
+            "images": {
+                "480w_still": {
+                    "height": "270",
+                    "size": "4219932",
+                    "url": "https://media1.giphy.com/media/Ny4r1nCHg3aVlnleoU/480w_s.jpg",
+                    "width": "480"
+                },
+                "downsized": {
+                    "height": "270",
+                    "size": "1988187",
+                    "url": "https://media1.giphy.com/media/Ny4r1nCHg3aVlnleoU/giphy-downsized.gif",
+                    "width": "480"
+                },
+                "downsized_large": {
+                    "height": "270",
+                    "size": "4219932",
+                    "url": "https://media1.giphy.com/media/Ny4r1nCHg3aVlnleoU/giphy.gif",
+                    "width": "480"
+                },
+                "downsized_medium": {
+                    "height": "270",
+                    "size": "2569054",
+                    "url": "https://media1.giphy.com/media/Ny4r1nCHg3aVlnleoU/giphy-downsized-medium.gif",
+                    "width": "480"
+                },
+                "downsized_small": {
+                    "height": "154",
+                    "mp4": "https://media1.giphy.com/media/Ny4r1nCHg3aVlnleoU/giphy-downsized-small.mp4",
+                    "mp4_size": "123521",
+                    "width": "273"
+                },
+                "downsized_still": {
+                    "height": "270",
+                    "size": "40400",
+                    "url": "https://media1.giphy.com/media/Ny4r1nCHg3aVlnleoU/giphy-downsized_s.gif",
+                    "width": "480"
+                },
+                "fixed_height": {
+                    "height": "200",
+                    "mp4": "https://media1.giphy.com/media/Ny4r1nCHg3aVlnleoU/200.mp4",
+                    "mp4_size": "335812",
+                    "size": "1650628",
+                    "url": "https://media1.giphy.com/media/Ny4r1nCHg3aVlnleoU/200.gif",
+                    "webp": "https://media1.giphy.com/media/Ny4r1nCHg3aVlnleoU/200.webp",
+                    "webp_size": "468284",
+                    "width": "356"
+                },
+                "fixed_height_downsampled": {
+                    "height": "200",
+                    "size": "157139",
+                    "url": "https://media1.giphy.com/media/Ny4r1nCHg3aVlnleoU/200_d.gif",
+                    "webp": "https://media1.giphy.com/media/Ny4r1nCHg3aVlnleoU/200_d.webp",
+                    "webp_size": "105378",
+                    "width": "356"
+                },
+                "fixed_height_small": {
+                    "height": "100",
+                    "mp4": "https://media1.giphy.com/media/Ny4r1nCHg3aVlnleoU/100.mp4",
+                    "mp4_size": "119760",
+                    "size": "510756",
+                    "url": "https://media1.giphy.com/media/Ny4r1nCHg3aVlnleoU/100.gif",
+                    "webp": "https://media1.giphy.com/media/Ny4r1nCHg3aVlnleoU/100.webp",
+                    "webp_size": "176200",
+                    "width": "178"
+                },
+                "fixed_height_small_still": {
+                    "height": "100",
+                    "size": "8898",
+                    "url": "https://media1.giphy.com/media/Ny4r1nCHg3aVlnleoU/100_s.gif",
+                    "width": "178"
+                },
+                "fixed_height_still": {
+                    "height": "200",
+                    "size": "26136",
+                    "url": "https://media1.giphy.com/media/Ny4r1nCHg3aVlnleoU/200_s.gif",
+                    "width": "356"
+                },
+                "fixed_width": {
+                    "height": "113",
+                    "mp4": "https://media1.giphy.com/media/Ny4r1nCHg3aVlnleoU/200w.mp4",
+                    "mp4_size": "137331",
+                    "size": "697611",
+                    "url": "https://media1.giphy.com/media/Ny4r1nCHg3aVlnleoU/200w.gif",
+                    "webp": "https://media1.giphy.com/media/Ny4r1nCHg3aVlnleoU/200w.webp",
+                    "webp_size": "206338",
+                    "width": "200"
+                },
+                "fixed_width_downsampled": {
+                    "height": "113",
+                    "size": "61058",
+                    "url": "https://media1.giphy.com/media/Ny4r1nCHg3aVlnleoU/200w_d.gif",
+                    "webp": "https://media1.giphy.com/media/Ny4r1nCHg3aVlnleoU/200w_d.webp",
+                    "webp_size": "39310",
+                    "width": "200"
+                },
+                "fixed_width_small": {
+                    "height": "57",
+                    "mp4": "https://media1.giphy.com/media/Ny4r1nCHg3aVlnleoU/100w.mp4",
+                    "mp4_size": "46785",
+                    "size": "192005",
+                    "url": "https://media1.giphy.com/media/Ny4r1nCHg3aVlnleoU/100w.gif",
+                    "webp": "https://media1.giphy.com/media/Ny4r1nCHg3aVlnleoU/100w.webp",
+                    "webp_size": "68422",
+                    "width": "100"
+                },
+                "fixed_width_small_still": {
+                    "height": "57",
+                    "size": "3489",
+                    "url": "https://media1.giphy.com/media/Ny4r1nCHg3aVlnleoU/100w_s.gif",
+                    "width": "100"
+                },
+                "fixed_width_still": {
+                    "height": "113",
+                    "size": "13281",
+                    "url": "https://media1.giphy.com/media/Ny4r1nCHg3aVlnleoU/200w_s.gif",
+                    "width": "200"
+                },
+                "looping": {
+                    "mp4": "https://media1.giphy.com/media/Ny4r1nCHg3aVlnleoU/giphy-loop.mp4",
+                    "mp4_size": "3323688"
+                },
+                "original": {
+                    "frames": "68",
+                    "hash": "c9f80b50aec38cbd0696db1d00d59b17",
+                    "height": "270",
+                    "mp4": "https://media1.giphy.com/media/Ny4r1nCHg3aVlnleoU/giphy.mp4",
+                    "mp4_size": "551432",
+                    "size": "4219932",
+                    "url": "https://media1.giphy.com/media/Ny4r1nCHg3aVlnleoU/giphy.gif",
+                    "webp": "https://media1.giphy.com/media/Ny4r1nCHg3aVlnleoU/giphy.webp",
+                    "webp_size": "718210",
+                    "width": "480"
+                },
+                "original_mp4": {
+                    "height": "270",
+                    "mp4": "https://media1.giphy.com/media/Ny4r1nCHg3aVlnleoU/giphy.mp4",
+                    "mp4_size": "551432",
+                    "width": "480"
+                },
+                "original_still": {
+                    "height": "270",
+                    "size": "112129",
+                    "url": "https://media1.giphy.com/media/Ny4r1nCHg3aVlnleoU/giphy_s.gif",
+                    "width": "480"
+                },
+                "preview": {
+                    "height": "138",
+                    "mp4": "https://media1.giphy.com/media/Ny4r1nCHg3aVlnleoU/giphy-preview.mp4",
+                    "mp4_size": "41767",
+                    "width": "245"
+                },
+                "preview_gif": {
+                    "height": "50",
+                    "size": "48901",
+                    "url": "https://media1.giphy.com/media/Ny4r1nCHg3aVlnleoU/giphy-preview.gif",
+                    "width": "89"
+                },
+                "preview_webp": {
+                    "height": "98",
+                    "size": "39184",
+                    "url": "https://media1.giphy.com/media/Ny4r1nCHg3aVlnleoU/giphy-preview.webp",
+                    "width": "174"
+                }
+            },
+            "import_datetime": "2021-01-14 19:53:45",
+            "is_sticker": 0,
+            "rating": "g",
+            "slug": "netflix-Ny4r1nCHg3aVlnleoU",
+            "source": "",
+            "source_post_url": "",
+            "source_tld": "",
+            "title": "Woman Womanhood GIF by NETFLIX",
+            "trending_datetime": "0000-00-00 00:00:00",
+            "type": "gif",
+            "url": "https://giphy.com/gifs/netflix-Ny4r1nCHg3aVlnleoU",
+            "user": {
+                "avatar_url": "https://media2.giphy.com/avatars/netflix/4oBuhqPAhFem.png",
+                "banner_image": "",
+                "banner_url": "",
+                "description": "See What's Next in entertainment and Netflix original series, movies, TV, docs, and comedies. You can stream Netflix anytime, anywhere, on any device.",
+                "display_name": "NETFLIX",
+                "instagram_url": "",
+                "is_verified": true,
+                "profile_url": "https://giphy.com/netflix/",
+                "username": "netflix",
+                "website_url": "http://netflix.com"
+            },
+            "username": "netflix"
+        }
+    ],
+    "meta": {
+        "msg": "OK",
+        "response_id": "q8gfrtbqg4vl707hqwbibbs8qt764pjv8o01sv9u",
+        "status": 200
+    },
+    "pagination": {
+        "count": 1,
+        "offset": 0,
+        "total_count": 18842
+    }
+}

@@ -1,0 +1,31 @@
+{
+    "metadata": {
+        "format": "Jpeg",
+        "height": 600,
+        "width": 800
+    },
+    "modelVersion": "2021-04-01",
+    "objects": [
+        {
+            "confidence": 0.767,
+            "object": "person",
+            "rectangle": {
+                "h": 305,
+                "w": 105,
+                "x": 528,
+                "y": 109
+            }
+        },
+        {
+            "confidence": 0.85,
+            "object": "person",
+            "rectangle": {
+                "h": 552,
+                "w": 206,
+                "x": 12,
+                "y": 33
+            }
+        }
+    ],
+    "requestId": "dd4584d1-d316-455f-aeff-e12ca0ba2def"
+}

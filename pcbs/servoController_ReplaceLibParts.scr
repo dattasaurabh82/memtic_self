@@ -1,0 +1,24 @@
+# 'EAGLE Version 9.6.2 Copyright (c) 1988-2020 Autodesk, Inc.;
+
+SET UNDO_LOG OFF;
+# Migrate parts to '/Users/saurabhdatta/PersonalProjects/oldGrandPa/pcbs/servoController.lbr'
+USE -*;
+USE '/Users/saurabhdatta/PersonalProjects/oldGrandPa/pcbs/servoController.lbr';
+#
+# SHEET 1 - MIGRATE PARTS
+#
+EDIT .s1
+REPLACE C1 DIP-ALUMINUM-47UF-16V(D5-H7MM);
+REPLACE CN1 ARDUINO_3V_TTL_INTERFACE_2_PI_ADAFRUIT_JST_2PIN-SMT-RA;
+REPLACE GND1 GND;
+REPLACE GND2 GND;
+REPLACE GND3 GND;
+REPLACE GND4 GND;
+REPLACE GND5 GND;
+REPLACE J2 AUDIO_JACK_TRRSSMD_RA;
+REPLACE J3 3-5-PIN-SMD_POWER_JACK;
+REPLACE M1 ARDUINO-PRO-MINI-3.3V#SMP;
+EDIT .s1
+SET UNDO_LOG ON;
+# Put all libraries back into use
+USE *;
