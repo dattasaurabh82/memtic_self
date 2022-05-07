@@ -103,7 +103,7 @@ boolean armSys = false;
 import mqtt.*;
 MQTTClient client;
 String ClientID = "NUC_Processing";
-String BrokerAddr = "mqtt://192.168.10.61:1560";
+String BrokerAddr = "mqtt://192.168.10.61:1560"; // Running on the pi
 String subs_topic = "PI_TV";
 String pubs_topic = "NUC_SERVER";
 
