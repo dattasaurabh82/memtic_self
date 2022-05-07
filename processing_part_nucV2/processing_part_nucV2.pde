@@ -127,6 +127,21 @@ void setup() {
 
   background(0);
 
+  // Delete old files
+  ActiveDir = sketchPath() + "/";
+  String oldAllJSONFilesPath = ActiveDir + "*.json";
+  String cmd[] = {"rm", oldAllJSONFilesPath};
+  stdOut = "Deleting old files ...";
+  logStuff("Deleting old files ...");
+
+  if (ranCommandSuccsfully(cmd)) {
+    stdOut = "Old files Deleted!";
+    logStuff("Old files Deleted!");
+  } else {
+    stdOut = "Old files could not be Deleted!";
+    logStuff("Old files could not be Deleted!");
+  }
+
   // ------ Serial related ------ //
   // For debugging serial port
   // String[] serialPorts = Serial.list();
@@ -680,9 +695,9 @@ void scrollNext() {
     if (armSys) {
       try {
         finger.write('1');
-        
+
         stdOut = "scroll now\n";
-        
+
         oneProcessTimer.start();
 
         logStuff("PASS "+ str(passCounter) +" complete!");
