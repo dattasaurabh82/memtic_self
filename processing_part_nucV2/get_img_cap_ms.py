@@ -44,8 +44,9 @@ load_dotenv()
 input_img_file_path = sys.argv[1]
 merged_output_file = sys.argv[2]
 
-caption_res_file = "img_cap_data.json"
-object_detection_res_file = "img_od_data.json"
+curr_dir = os.path.dirname(os.path.realpath(__file__)) + "/"
+caption_res_file = curr_dir + "img_cap_data.json"
+object_detection_res_file = curr_dir + "img_od_data.json"
 
 
 # MS Azure Vision API related props
