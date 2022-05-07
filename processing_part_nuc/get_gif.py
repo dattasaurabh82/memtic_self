@@ -1,5 +1,28 @@
 #!/usr/bin/env python
 
+'''
+It takes in a caption and retrurns a JSON from GIPHY's API
+Processing that parses this json to downlaod a gif. 
+
+1st argument while running the script: input caption string
+2nd argument while running the scripr: output json file
+
+Note: 
+1. Create an account in giphy's developer portal. 
+2. Register an app and get the API key. 
+3. Create a ".env" file in this location. 
+4. add GiphyKey=<YOUR API KEY>
+
+----------------------------------------------------- 
+Author: Saurabh Datta
+Date: 03/11/2020
+Loc: Beijing, China.
+Project: https://www.dattasaurabh.com/mi-e-metic-self
+git: https://github.com/dattasaurabh82/memtic_self
+License: MIT
+-----------------------------------------------------
+'''
+
 import urllib
 import requests
 import sys

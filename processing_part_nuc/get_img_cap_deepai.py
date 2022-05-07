@@ -1,5 +1,29 @@
 #!/usr/bin/env python
 
+'''
+Outputs a labeled image along with a JSON snippet that includes
+each label and its coordinates within the image
+
+1st argument while running the script: input image file
+2nd argument while running the scripr: output json file
+
+Note: 
+1. Create an account in deepai.org
+2. Choose "densecap API" and get API KEY
+3. Create a ".env" file in this location
+4. add DenseCapKey=<YOUR API KEY>
+
+----------------------------------------------------- 
+Author: Saurabh Datta
+Date: 03/11/2020
+Loc: Beijing, China.
+Project: https://www.dattasaurabh.com/mi-e-metic-self
+git: https://github.com/dattasaurabh82/memtic_self
+License: MIT
+-----------------------------------------------------
+'''
+
+
 import requests
 import sys
 import json

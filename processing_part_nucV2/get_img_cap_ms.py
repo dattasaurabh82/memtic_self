@@ -1,5 +1,35 @@
 #!/usr/bin/env python3
 
+'''
+New python script to use Microsoft Azure computer vision API
+1. Caption generation
+2. Object detection
+as alternative method to, previously used and now deprecated
+densecap api (https://deepai.org/machine-learning-model/densecap)
+
+It returns the output json in the same schema as densecap api returned. 
+This way we do not have to change anything for parsing data 
+in processing sketch side.
+
+1st argument while running the script: input image file
+2nd argument while running the scripr: output json file
+
+Note: 
+1. Create an Computer visison APP Microsoft Azure cloud. 
+2. Get the API key. 
+3. Create a ".env" file in this location. 
+4. add AzureKey=<YOUR API KEY>
+
+----------------------------------------------------- 
+Author: Saurabh Datta
+Date: 07/05/2022
+Loc: Beijing, China.
+Project: https://www.dattasaurabh.com/mi-e-metic-self
+git: https://github.com/dattasaurabh82/memtic_self
+License: MIT
+-----------------------------------------------------
+'''
+
 import requests
 import sys
 import json
