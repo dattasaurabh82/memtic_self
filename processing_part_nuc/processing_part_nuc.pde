@@ -296,7 +296,7 @@ void draw() {
     stdOut = "MOTOR CHANNEL OPENING: in " + str(delayForSysArming/1000) + " SEC.";
   }
   if (timerFirstSendStartSig.isRunning() && auto) {
-    stdOut = "SENDING SIGNAL TO AUTO-START: in " + str(delayForSendingStartSig/1000) + " SEC.";
+    //stdOut = "SENDING SIGNAL TO AUTO-START: in " + str(delayForSendingStartSig/1000) + " SEC.";
   }
   //------------------------------------------------------------------//
 
