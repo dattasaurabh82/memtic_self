@@ -1,0 +1,9 @@
+56415 - 2022-05-09 19:40:39,158 - INFO - This is an info message
+56415 - 2022-05-09 19:40:39,181 - DEBUG - Starting new HTTPS connection (1): eastasia.api.cognitive.microsoft.com:443
+56415 - 2022-05-09 19:40:46,357 - DEBUG - https://eastasia.api.cognitive.microsoft.com:443 "POST /vision/v3.2/describe?%25s&maxCandidates=10&language=en&model-version=latest HTTP/1.1" 200 263
+56415 - 2022-05-09 19:40:46,360 - INFO - Verified, we have captions!
+56415 - 2022-05-09 19:40:46,367 - DEBUG - Starting new HTTPS connection (1): eastasia.api.cognitive.microsoft.com:443
+56415 - 2022-05-09 19:40:54,410 - DEBUG - https://eastasia.api.cognitive.microsoft.com:443 "POST /vision/v3.2/detect?%25s&model-version=latest HTTP/1.1" 200 236
+56415 - 2022-05-09 19:40:54,413 - INFO - Verified, we have bounding boxes from object detection!
+56415 - 2022-05-09 19:40:54,413 - INFO - Objects detected and captions generated are of same quantity
+56415 - 2022-05-09 19:40:54,413 - INFO - Adding detected object's bounding box data to json

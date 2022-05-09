@@ -1,26 +1,16 @@
 {
-    "id": "ef0155b7-db40-4f60-910a-7537f5965012",
+    "id": "29e63952-224b-4b09-a9da-bc2afd3782f3",
     "output": {
         "captions": [
             {
                 "bounding_box": [
-                    528,
-                    109,
-                    105,
-                    305
+                    1843,
+                    1403,
+                    441,
+                    1851
                 ],
-                "caption": "a group of people walking down a sidewalk",
-                "confidence": 0.3998538553714752
-            },
-            {
-                "bounding_box": [
-                    12,
-                    33,
-                    206,
-                    552
-                ],
-                "caption": "a group of people walking down a sidewalk",
-                "confidence": 0.3998538553714752
+                "caption": "a person standing in a doorway",
+                "confidence": 0.5075588226318359
             }
         ]
     }

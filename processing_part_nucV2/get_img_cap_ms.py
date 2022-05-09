@@ -15,9 +15,9 @@ in processing sketch side.
 2nd argument while running the scripr: output json file
 
 Note: 
-1. Create an Computer visison APP Microsoft Azure cloud. 
+1. Create an Computer visison APP in Microsoft Azure cloud. 
 2. Get the API key. 
-3. Create a ".env" file in this location. 
+3. Create a (or use the existing) ".env" file in this location. 
 4. add AzureKey=<YOUR API KEY>
 
 ----------------------------------------------------- 
@@ -34,6 +34,15 @@ import requests
 import sys
 import json
 from time import sleep
+import logging
+logging.basicConfig(
+	level=logging.DEBUG,
+	filename='pyscpt.log', 
+	filemode='w', 
+	format='%(process)d - %(asctime)s - %(levelname)s - %(message)s'
+)
+logging.info('This is an info message')
+
 import os
 
 # Load the keys from env
@@ -98,18 +107,19 @@ def post_req(_base_url, _headers, _params, _input_data_path, _res_out_file):
 				return True
 			else:
 				# --> err or bad response
+				logging.error("Bad POST request's response")
 				print("Bad POST request's response")
-				print("---------------------------\n")
-				print (err)
 				return False
 		except requests.exceptions.RequestException as err:
 			# --> exception during making request (POST)
+			logging.exception("Bad POST request: unsuccessful!")
 			print("Bad POST request: unsuccessful!")
 			print("----------------\n")
 			print (err)
 			return False
 	except IOError as err:
 		# --> file open error
+		logging.exception("Image file loading err")
 		print("Image file loading err")
 		print("----------------------\n")
 		print(err)
@@ -150,15 +160,21 @@ def got_captions(_input_file_path, _captions_res_file):
 				# So return True in any case & no need to add anything
 				if (len(cap_data["description"]["captions"]) == 1 and 
 					cap_data["description"]["captions"][0]["text"] == "no image"):
+					logging.warning("No caption/s found!")
+					logging.info("Returned caption in captions array, says: \"no image\"")
 					print("No caption/s found!")
 					print("Returned caption in captions array, says: \"no image\"")
 				else:
+					logging.info("Verified, we have captions!")
 					print("Verified, we have captions!")
 				return True
 			else:
 				# Handle [EDGE CASE], captions array empty
+				logging.warning("We don't have captions ... [returned captions array empty]")
+				logging.info("Generating placeholder empty caption...")
 				print("We don't have captions ... [returned captions array empty]")
 				print("Generating placeholder empty caption...")
+	
 				cap_data["description"]["captions"][0]["text"] = "no image"
 				cap_data["description"]["captions"][0]["confidence"] = 1.00
 				# After adjustment write back
@@ -167,6 +183,7 @@ def got_captions(_input_file_path, _captions_res_file):
 				return True
 		except IOError as err:
 			# --> the prev written file can't be loaded & read from
+			logging.exception("Failed to load gathered captions response file")
 			print("[",got_captions.__name__, "] Failed to load gathered \
 				captions response file\n\
 				to check if we have captions or not!\n")
@@ -204,13 +221,15 @@ def got_bounding_boxes(_input_file_path, _bb_res_file):
 			bb_data_jf = open(_bb_res_file)
 			bb_data = json.load(bb_data_jf)
 			if len(bb_data["objects"]) > 0:
+				logging.info("Verified, we have bounding boxes from object detection!")
 				print("Verified, we have bounding boxes from object detection!")
 			else:
 				# Handle [EDGE CASE], objects array empty
+				logging.warning("No objects detected ... [returned object's array empty]")
 				print("No objects detected ... [returned object's array empty]")
+				logging.info("Generating placeholder empty fixed object ...")
 				print("Generating placeholder empty fixed object ...")
-				# print("obj len:", len(bb_data["objects"]))
-				# print(bb_data["objects"], type(bb_data["objects"]))
+				
 				rect_data = {}
 				rect_data["rectangle"] = {}
 				rect_data["rectangle"]["x"] = 10  # fixed loc
@@ -226,6 +245,7 @@ def got_bounding_boxes(_input_file_path, _bb_res_file):
 			return True
 		except IOError as err:
 			# --> the prev written file can't be loaded & read from
+			logging.exception("Failed to load gathered object detection response file")
 			print("[",got_bounding_boxes.__name__, "] Failed to load gathered \
 				object detection response file\n\
 				to check if we have cobjects and respective bounding boxes!\n")
@@ -246,6 +266,7 @@ def load_and_merge_data(_captions_res_file, _bb_res_file, _merged_output_file):
 		cap_data_jf.close()
 	except IOError as err:
 		#  --> the prev written file can't be loaded & read from
+		logging.exception("Failed to load gathered captions response file")
 		print("[",load_and_merge_data.__name__, "] Failed to load gathered \
 			captions response file\n\
 			to check if we have captions or not!\n")
@@ -257,16 +278,20 @@ def load_and_merge_data(_captions_res_file, _bb_res_file, _merged_output_file):
 		bb_data_jf.close()
 	except IOError as err:
 		# --> the prev written file can't be loaded & read from
+		logging.exception("Failed to load gathered object detection response file")
 		print("[",load_and_merge_data.__name__, "] Failed to load gathered \
 			object detection response file\n\
 			to check if we have cobjects and respective bounding boxes!\n")
 		print (err)
 
+	# --- FOR DEBUGGING --- #
+	# print("\nAzure Cloud Captions API raw response")
 	# print("\n")
-	# print(cap_data)
+	# print(json.dump(cap_data, indent=4, sort_keys=True))
+	# print("\nAzure Cloud Object detection API raw response")
+	# print(json.dump(bb_data, indent=4, sort_keys=True))
 	# print("\n")
-	# print(bb_data)
-	# print("\n")
+	# --------------------- #
 
 	# -------------------------------------------------------------------------- #
 	# --- Cleanup & rename some unnecessary fields to match old api repsonse --- #
@@ -291,8 +316,11 @@ def load_and_merge_data(_captions_res_file, _bb_res_file, _merged_output_file):
 	if len(bb_data["objects"]) >= len(cap_data["output"]["captions"]):
 		# Take the bounding box data of objects detected and add as new entry to the captions
 		if len(bb_data["objects"]) == len(cap_data["output"]["captions"]):
+			logging.info("Objects detected and captions generated are of same quantity")
 			print("Objects detected and captions generated are of same quantity")
+			logging.info("Adding detected object's bounding box data to json")
 			print("Adding detected object's bounding box data to json")
+			
 			for i in range(0, len(cap_data["output"]["captions"])):
 				cap_data["output"]["captions"][i]["bounding_box"] = [
 					bb_data["objects"][i]["rectangle"]["x"],
@@ -301,19 +329,28 @@ def load_and_merge_data(_captions_res_file, _bb_res_file, _merged_output_file):
 					bb_data["objects"][i]["rectangle"]["h"]
 				]
 		if len(bb_data["objects"]) > len(cap_data["output"]["captions"]):
+			logging.info("Objects detected are more than generated captions")
 			print("Objects detected are more than generated captions")
-			# transfer all the bounding box data to the final reshaped json data   
+			
+			# transfer all the bounding box data to the final reshaped json data
+			logging.info("Reshaping output json based on length of objects")
 			print("Reshaping output json based on length of objects")		
+			
 			# Create multiple duplicate entries of of a json object of captions and confidence
 			# So that the length of captions array is same a bounding box data array
 			# ** Just repeat the first caption in those entries, for caption's value.  
+			logging.info("Duplicating captions to make captions array len same as objects detected len")
 			print("Duplicating captions to make captions array len same as objects detected len")
+			
 			rem_caps_count = len(bb_data["objects"]) - len(cap_data["output"]["captions"])
 			for i in range(0, rem_caps_count):
 				dup_cap = cap_data["output"]["captions"][0]["caption"]
 				dup_conf = cap_data["output"]["captions"][0]["confidence"]
 				cap_data["output"]["captions"].append({"caption": dup_cap, "confidence": dup_conf})
+			
+			logging.info("Adding detected object's bounding box data to json")
 			print("Adding detected object's bounding box data to json")
+			
 			for i in range(0, len(cap_data["output"]["captions"])):
 				cap_data["output"]["captions"][i]["bounding_box"] = [
 					bb_data["objects"][i]["rectangle"]["x"],
@@ -324,8 +361,11 @@ def load_and_merge_data(_captions_res_file, _bb_res_file, _merged_output_file):
 	if len(bb_data["objects"]) < len(cap_data["output"]["captions"]):
 		# 1. Transfer bounding box data to captions till length of bounding box
 		# 2. Delete rest of entry of captions
+		logging.info("Captions generated are more than objects detected")
 		print("Captions generated are more than objects detected")
+		logging.info("Reshaping output json based on length of objects")
 		print("Reshaping output json based on length of objects")
+		
 		for i in range(0, len(bb_data["objects"])):
 			cap_data["output"]["captions"][i]["bounding_box"] = [
 				bb_data["objects"][i]["rectangle"]["x"],
@@ -333,18 +373,12 @@ def load_and_merge_data(_captions_res_file, _bb_res_file, _merged_output_file):
 				bb_data["objects"][i]["rectangle"]["w"],
 				bb_data["objects"][i]["rectangle"]["h"]
 			]
-
 		rem_caps_count = len(cap_data["output"]["captions"]) - len(bb_data["objects"])
-		# print(rem_caps_count)
 		del_start_entry_id = len(cap_data["output"]["captions"])-rem_caps_count
-		# print("Will start deleting from entry:\t", del_start_entry_id)
-		# print("length of caption entries:\t", len(cap_data["output"]["captions"]))
 		for i in range(del_start_entry_id, len(cap_data["output"]["captions"])-1):
-			# print("to be deleted, captions entry:", i)
-			# print("deleting now, captions entry:", i)
 			del cap_data["output"]["captions"][i]
 			# cap_data["output"]["captions"].pop(i) # alt-method
-		# delete the last item
+		# Delete the last item
 		del cap_data["output"]["captions"][len(cap_data["output"]["captions"])-1]
 
 	# Finally write the newly reshaped and merged data as json to the output file
@@ -362,16 +396,17 @@ def main():
 	global merged_output_file
 
 	# ** comment out For files merge test only
-	# if (got_captions(input_img_file_path, caption_res_file) is True and 
-	# 	got_bounding_boxes(input_img_file_path, object_detection_res_file) is True):
-	# 		# Load and merge data from both files into 1, by reshaping it 
-	# 		# into ** suspended deepai densecap API's response pattern
-	# 		load_and_merge_data(caption_res_file, 
-	# 			object_detection_res_file, 
-	# 			merged_output_file
-	# 		)
-	# ** uncomment For files merge test only
-	load_and_merge_data(caption_res_file, object_detection_res_file, merged_output_file)
+	if (got_captions(input_img_file_path, caption_res_file) is True and 
+		got_bounding_boxes(input_img_file_path, object_detection_res_file) is True):
+			# Load and merge data from both files into 1, by reshaping it 
+			# into ** suspended deepai densecap API's response pattern
+			load_and_merge_data(caption_res_file, 
+				object_detection_res_file, 
+				merged_output_file
+			)
+
+	# ** TEST ONLY: uncomment For files merge and reshaping output test 
+	# load_and_merge_data(caption_res_file, object_detection_res_file, merged_output_file)
 
 
 
