@@ -35,13 +35,7 @@ import sys
 import json
 from time import sleep
 import logging
-logging.basicConfig(
-	level=logging.DEBUG,
-	filename='pyscpt.log', 
-	filemode='w', 
-	format='%(process)d - %(asctime)s - %(levelname)s - %(message)s'
-)
-logging.info('This is an info message')
+
 
 import os
 
@@ -56,6 +50,14 @@ merged_output_file = sys.argv[2]
 curr_dir = os.path.dirname(os.path.realpath(__file__)) + "/"
 caption_res_file = curr_dir + "img_cap_data.json"
 object_detection_res_file = curr_dir + "img_od_data.json"
+
+log_file = curr_dir + 'pyscpt.log'
+logging.basicConfig(
+	level=logging.DEBUG,
+	filename=log_file, 
+	filemode='w', 
+	format='%(process)d - %(asctime)s - %(levelname)s - %(message)s'
+)
 
 
 # MS Azure Vision API related props

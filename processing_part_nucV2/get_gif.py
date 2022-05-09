@@ -10,7 +10,7 @@ Processing that parses this json to downlaod a gif.
 Note: 
 1. Create an account in giphy's developer portal. 
 2. Register an app and get the API key. 
-3. Create a ".env" file in this location. 
+3. Create a (or use the existing) ".env" file in this location. 
 4. add GiphyKey=<YOUR API KEY>
 
 ----------------------------------------------------- 
