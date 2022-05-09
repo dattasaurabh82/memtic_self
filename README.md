@@ -5,7 +5,6 @@
 ```mermaid
 sequenceDiagram
     autonumber
-
     participant Processing_GUI
     participant python_AI_API_req_maker
     participant img_data.json
@@ -15,19 +14,15 @@ sequenceDiagram
     participant HW_swiper
 
     Note over Processing_GUI: mount network loaction of PI
-    loop Every few minutes
-        activate Processing_GUI
-
+    loop Every few minutes (configurable in app)
         Processing_GUI->>PI_python_OMX_player:  MQTT: stop omx player
 
         Note over Processing_GUI: capture image
         
-        
-        deactivate Processing_GUI
         alt got captions and bounding box
-            activate Processing_GUI
-
             Processing_GUI->>python_AI_API_req_maker: CMD: raw.png + img_data.json
+
+            activate Processing_GUI
 
             python_AI_API_req_maker-->>img_data.json: FILE_IO: formatted json response
             
@@ -47,23 +42,26 @@ sequenceDiagram
 
             Processing_GUI->>PI_python_OMX_player: CURL: MQTT: start omx player 
 
-            Note over PI_python_OMX_player: loop new GIF
-        else caption req error
-            activate Processing_GUI
+            deactivate Processing_GUI
 
+            Note over PI_python_OMX_player: loop new GIF
+        
+        else caption req error
             Processing_GUI-xpython_AI_API_req_maker: CMD: raw.png + img_data.json
+
+            activate Processing_GUI
             
             python_AI_API_req_maker-ximg_data.json: FILE_IO: exception for json response
             
             Processing_GUI->>PI_python_OMX_player: CURL: show error gif + MQTT: start omx player 
 
-            Note over PI_python_OMX_player: loop error fixed GIF
-
             deactivate Processing_GUI
-        else gif req error
-            activate Processing_GUI
 
+            Note over PI_python_OMX_player: loop error fixed GIF
+        else gif req error
             Processing_GUI->>python_AI_API_req_maker: CMD: raw.png + img_data.json
+
+            activate Processing_GUI
             
             python_AI_API_req_maker->>img_data.json: FILE_IO: exception for json response
 
@@ -71,19 +69,24 @@ sequenceDiagram
             
             Processing_GUI-xpython_gif_req_maker: CMD: caption + gif_data.json
 
-            python_gif_req_maker-xgif_data.json: FILE_IO: exception for json response
+            python_gif_req_maker--xgif_data.json: FILE_IO: exception for json response
 
             Processing_GUI->>PI_python_OMX_player: CURL: show error gif + MQTT: start omx player 
 
-            Note over PI_python_OMX_player: loop error fixed GIF
-
             deactivate Processing_GUI
+
+            Note over PI_python_OMX_player: loop error fixed GIF
         end
 
-        activate Processing_GUI
+        Note over Processing_GUI,HW_swiper: In any case, it send a swipe signal and awaits for swipe finish
+
         Processing_GUI->>HW_swiper: SERIAL: scroll tiktok
-        activate HW_swiper
+        activate Processing_GUI
+       
         Note over HW_swiper: Swipe
+        
+        activate HW_swiper
+        
         HW_swiper->>Processing_GUI: done swipping
         deactivate HW_swiper
         deactivate Processing_GUI
