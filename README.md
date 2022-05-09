@@ -2,6 +2,7 @@
 
 <https://www.dattasaurabh.com/mi-e-metic-self>
 
+## System Architecture overview:
 ```mermaid
 sequenceDiagram
     autonumber
