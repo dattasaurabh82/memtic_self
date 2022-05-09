@@ -292,16 +292,35 @@ def load_and_merge_data(_captions_res_file, _bb_res_file, _merged_output_file):
 		# Take the bounding box data of objects detected and add as new entry to the captions
 		if len(bb_data["objects"]) == len(cap_data["output"]["captions"]):
 			print("Objects detected and captions generated are of same quantity")
+			print("Adding detected object's bounding box data to json")
+			for i in range(0, len(cap_data["output"]["captions"])):
+				cap_data["output"]["captions"][i]["bounding_box"] = [
+					bb_data["objects"][i]["rectangle"]["x"],
+					bb_data["objects"][i]["rectangle"]["y"],
+					bb_data["objects"][i]["rectangle"]["w"],
+					bb_data["objects"][i]["rectangle"]["h"]
+				]
 		if len(bb_data["objects"]) > len(cap_data["output"]["captions"]):
 			print("Objects detected are more than generated captions")
-		print("Reshaping output json based on length of captions")
-		for i in range(0, len(cap_data["output"]["captions"])):
-			cap_data["output"]["captions"][i]["bounding_box"] = [
-				bb_data["objects"][i]["rectangle"]["x"],
-				bb_data["objects"][i]["rectangle"]["y"],
-				bb_data["objects"][i]["rectangle"]["w"],
-				bb_data["objects"][i]["rectangle"]["h"]
-			]
+			# transfer all the bounding box data to the final reshaped json data   
+			print("Reshaping output json based on length of objects")		
+			# Create multiple duplicate entries of of a json object of captions and confidence
+			# So that the length of captions array is same a bounding box data array
+			# ** Just repeat the first caption in those entries, for caption's value.  
+			print("Duplicating captions to make captions array len same as objects detected len")
+			rem_caps_count = len(bb_data["objects"]) - len(cap_data["output"]["captions"])
+			for i in range(0, rem_caps_count):
+				dup_cap = cap_data["output"]["captions"][0]["caption"]
+				dup_conf = cap_data["output"]["captions"][0]["confidence"]
+				cap_data["output"]["captions"].append({"caption": dup_cap, "confidence": dup_conf})
+			print("Adding detected object's bounding box data to json")
+			for i in range(0, len(cap_data["output"]["captions"])):
+				cap_data["output"]["captions"][i]["bounding_box"] = [
+					bb_data["objects"][i]["rectangle"]["x"],
+					bb_data["objects"][i]["rectangle"]["y"],
+					bb_data["objects"][i]["rectangle"]["w"],
+					bb_data["objects"][i]["rectangle"]["h"]
+				]
 	if len(bb_data["objects"]) < len(cap_data["output"]["captions"]):
 		# 1. Transfer bounding box data to captions till length of bounding box
 		# 2. Delete rest of entry of captions
@@ -343,16 +362,16 @@ def main():
 	global merged_output_file
 
 	# ** comment out For files merge test only
-	if (got_captions(input_img_file_path, caption_res_file) is True and 
-		got_bounding_boxes(input_img_file_path, object_detection_res_file) is True):
-			# Load and merge data from both files into 1, by reshaping it 
-			# into ** suspended deepai densecap API's response pattern
-			load_and_merge_data(caption_res_file, 
-				object_detection_res_file, 
-				merged_output_file
-			)
+	# if (got_captions(input_img_file_path, caption_res_file) is True and 
+	# 	got_bounding_boxes(input_img_file_path, object_detection_res_file) is True):
+	# 		# Load and merge data from both files into 1, by reshaping it 
+	# 		# into ** suspended deepai densecap API's response pattern
+	# 		load_and_merge_data(caption_res_file, 
+	# 			object_detection_res_file, 
+	# 			merged_output_file
+	# 		)
 	# ** uncomment For files merge test only
-	# load_and_merge_data(caption_res_file, object_detection_res_file, merged_output_file)
+	load_and_merge_data(caption_res_file, object_detection_res_file, merged_output_file)
 
 
 

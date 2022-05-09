@@ -1,12 +1,14 @@
-boolean auto = true; //<>// //<>//
+//int eachProcessDelay = 600000;  // 10 mins //<>//
+int eachProcessDelay = 480000;    // 8 mins
+//int eachProcessDelay = 180000;  // 6 mins
+//int eachProcessDelay = 60000;   // 1 mins
+
+boolean auto = true; 
+
 int delayForSysArming = 10000;       // 10 sec
 int delayForSysTypeSel = 15000;      // 15 sec
 int delayForSendingStartSig = 20000; // 20 sec
 String sysType = "tiktok_cam"; // tiktok_cam[2] or public_cam[3]
-
-//int eachProcessDelay = 600000;             // 10 mins
-int eachProcessDelay = 180000;               // 6 mins
-//int eachProcessDelay = 60000;              // 1 mins
 
 boolean retainGIF = true;
 

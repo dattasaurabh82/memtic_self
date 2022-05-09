@@ -11,6 +11,16 @@
                 ],
                 "caption": "a group of people walking down a sidewalk",
                 "confidence": 0.3998538553714752
+            },
+            {
+                "bounding_box": [
+                    12,
+                    33,
+                    206,
+                    552
+                ],
+                "caption": "a group of people walking down a sidewalk",
+                "confidence": 0.3998538553714752
             }
         ]
     }
