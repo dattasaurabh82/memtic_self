@@ -1,7 +1,7 @@
 documentation/*
 timeOutTester/*
 sheet_metal/*
-processing_part_nuc/test_data.json
+processing_part_nuc/*
 *.env
 *.zip
 *.mp4
