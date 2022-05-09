@@ -1,6 +1,7 @@
 # memtic_self
 
-<https://www.dattasaurabh.com/mi-e-metic-self>
+* [PROJECT PAGE](https://www.dattasaurabh.com/mi-e-metic-self)
+* [INSTALLATION GUIDE](https://sleepy-kite-3c7.notion.site/Mimetic-self-Installation-and-Maintenance-Guide-89d1f03d15b848089516b9a0ae4b9f4f)
 
 ## System Architecture overview:
 ```mermaid
