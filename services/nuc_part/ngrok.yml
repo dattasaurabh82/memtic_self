@@ -1,0 +1,12 @@
+version: "2"
+authtoken: 
+region: jp
+tunnels:
+  ssh:
+    addr: 22
+    proto: tcp
+    remote_addr: 1.tcp.jp.ngrok.io:24291
+  vnc:
+    addr: 5900
+    proto: tcp
+    remote_addr: 1.tcp.jp.ngrok.io:24591
